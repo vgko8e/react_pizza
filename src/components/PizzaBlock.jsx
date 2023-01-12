@@ -1,28 +1,26 @@
 import { useState } from "react";
 
-const PizzaBlock = ({ title, price }) => {
+const PizzaBlock = ({ title, price, sizes, imageUrl, types }) => {
   const [pizzaCount, setpizzaCount] = useState(0);
   const onClickAdd = () => {
     setpizzaCount(pizzaCount + 1);
   };
+  const typeNames = ["thin", "traditional"];
 
   return (
     <div className="pizza-block">
-      <img
-        className="pizza-block__image"
-        src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
-        alt="Pizza"
-      />
+      <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
       <h4 className="pizza-block__title">{title}</h4>
       <div className="pizza-block__selector">
         <ul>
-          <li className="active">thin</li>
-          <li>traditional</li>
+          {types.map((type) => (
+            <li>{typeNames[type]}</li>
+          ))}
         </ul>
         <ul>
-          <li className="active">26 cm.</li>
-          <li>30 cm.</li>
-          <li>40 cm.</li>
+          {sizes.map((size) => (
+            <li>{size} cm.</li>
+          ))}
         </ul>
       </div>
       <div className="pizza-block__bottom">

@@ -1,11 +1,21 @@
 import "./scss/app.scss";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Categories from "./components/Categories";
 import Sort from "./components/Sort";
 import PizzaBlock from "./components/PizzaBlock";
-import pizzas from "./data/pizzas.json";
 
 function App() {
+  const [pizzas, setPizzas] = useState([]);
+  useEffect(() => {
+    fetch("https://my.api.mockaroo.com/pizzas.json?key=ac66ca80")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setPizzas(data);
+      });
+  }, []);
   return (
     <div className="wrapper">
       <Header />

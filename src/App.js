@@ -8,7 +8,7 @@ import PizzaBlock from "./components/PizzaBlock";
 function App() {
   const [pizzas, setPizzas] = useState([]);
   useEffect(() => {
-    fetch("https://my.api.mockaroo.com/pizzas.json?key=ac66ca80")
+    fetch("https://my.api.mockaroo.com/pizzas.json?key=5fcbe6c0")
       .then((res) => {
         return res.json();
       })

@@ -10,13 +10,13 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://62f8db83e0564480352e3f1b.mockapi.io/pizzas")
+    fetch("https://62f8db83e0564480352e3f1b.mockapi.io/pizzas/pizzas")
       .then((res) => {
         return res.json();
       })
       .then((data) => {
         setPizzas(data);
-        setIsLoading(false);
+        setIsLoading(true);
       });
     window.scroll(0, 0);
   }, []);

@@ -10,7 +10,7 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://my.api.mockaroo.com/pizzas.json?key=5fcbe6c0")
+    fetch("https://62f8db83e0564480352e3f1b.mockapi.io/pizzas")
       .then((res) => {
         return res.json();
       })

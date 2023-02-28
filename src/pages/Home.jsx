@@ -5,7 +5,7 @@ import Sort from "../components/Sort";
 import PizzaBlock from "../components/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 
-const Home = () => {
+const Home = ({ searchInput }) => {
   const [pizzas, setPizzas] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [categoryId, setCategoryId] = useState(0);
@@ -19,8 +19,9 @@ const Home = () => {
     const order = sortType.sortProperty.includes("-") ? "asc" : "desc";
     const sortBy = sortType.sortProperty.replace("-", "");
     const category = categoryId > 0 ? `category=${categoryId}` : "";
+    const search = searchInput ? `&search=${searchInput}` : "";
     fetch(
-      `https://62f8db83e0564480352e3f1b.mockapi.io/pizzas?${category}&sortBy=${sortBy}&order=${order}`
+      `https://62f8db83e0564480352e3f1b.mockapi.io/pizzas?${category}&sortBy=${sortBy}&order=${order}${search}`
     )
       .then((res) => {
         return res.json();
@@ -30,7 +31,7 @@ const Home = () => {
         setIsLoading(false);
       });
     window.scroll(0, 0);
-  }, [categoryId, sortType]);
+  }, [categoryId, sortType, searchInput]);
   return (
     <div className="container">
       <div className="content__top">

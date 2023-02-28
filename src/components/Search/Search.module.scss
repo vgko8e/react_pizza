@@ -23,3 +23,17 @@ position: relative;
     left: 12px;
     top: 15px;
 }
+
+.close {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    opacity: 0.5;
+    right: 12px;
+    top: 16px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
